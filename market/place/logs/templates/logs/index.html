@@ -1,0 +1,89 @@
+{% include 'logs/base.html' %}
+{% load static %}
+
+{% block content %}
+		<div class="main-container">
+			<div class="global-nav-bar">
+				<div class="logo-name montserrat">Logo</div>
+				<div class="middle-nav-bar montserrat">
+					<form action="#">
+						<fieldset class="search">
+							<div class="search-button">
+								<button><img src="{% static 'logs/img/header/Vector.png' %}" alt="search-button"></button>
+							</div>
+							<div class="search-field">
+								<input type="text" name="search-input" placeholder="Search...">
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<div class="right-nav-tools montserrat">
+					<a href="#" class="links create-account">Create Account</a>
+					<a href="#" class="links connect-wallet">Connect Wallet</a>
+					<a href="#" class="links user-profile-button"><img src="{% static 'logs/img/header/profile-img.png' %}" alt="user-icon"></a>
+				</div>
+			</div>
+	
+			<div class="sidebar">
+				<!-- <div class="sidebar-logo">
+					<div class="logo">
+						<img src="" alt="logo">
+					</div>
+				</div> -->
+				
+				<div class="geners">
+					<h2 class="nav-title">GENERS</h2>
+					<ul class="nav-list">
+						<li><a href="#" class="all">ALL</a></li>
+						<li><a href="#" class="art">ART</a></li>
+						<li><a href="#" class="i-g-c">IN GAME CONTENT</a></li>
+						<li><a href="#" class="memes">MEMES</a></li>
+					</ul>
+				</div>
+	
+				<div class="filter">
+					<h2 class="nav-title">FILTER</h2>
+					<ul class="nav-list">
+						<li><a href="#" class="filter-text">NEWLY ADDED</a></li>
+						<li><a href="#" class="filter-text">LOWEST PRICE</a></li>
+						<li><a href="#" class="filter-text">HIGHEST PRICE</a></li>
+					</ul>
+					<a class="help-link" href="#">
+						<img class="help-icon" src="https://i.ya-webdesign.com/images/help-vector-5.png" alt="help">	
+						Help Center
+					</a>
+				</div>
+			</div>
+			
+			<div class="main-shop-menu">
+				{% for i in range %}
+				{{range}}
+				<div class="product-1">
+					<article class="main-image">
+					  <img src="{% static products_link_image %}" alt="" />
+					  <div>
+						<img src="{% static 'logs/img/card/icon-view.svg' %}" alt="" />
+					  </div>
+					</article>
+			  
+					<article>
+					  <h2></h2>
+					  <p>Our Equilibrium collection promotes balance and calm.</p>
+			  
+					  <ul>
+						<li><img src="{% static 'logs/img/card/icon-ethereum.svg' %}" alt="" /> 0.041 ETH</li>
+						<li><img src="./img/card/icon-clock.svg" alt="" /> {{ products_date }} </li>
+					  </ul>
+					</article>
+			  
+					<article class="avatar">
+					  <img src="{% static 'logs/img/card/image-avatar.png' %}" alt="" />
+					  <p>Creation of <span>Jules Wyvern</span></p>
+					</article>
+				</div>
+
+				{% endfor %}
+			</div>
+		</div>
+	
+{% endblock content %}

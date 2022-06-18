@@ -1,0 +1,29 @@
+{% include 'logs/base.html' %}
+{% load static%}
+{% block content %}
+<a href="../">Назад</a>
+<div class="container" style="color: white">
+    <ul class="market-list">
+        <li>
+            <img src={% static products %} alt="no image">
+            <form action="bye" method="post">
+                <input type="hidden" id="product_id" value={{ product_id }}>
+                <input type="button" class="button_for_bye" value="Купить">
+            </form>
+        </li>
+    </ul>
+
+    <div class="user_info">
+		<div class="info_coins">
+			<h3>Баланс: {{ coins }}</h3>
+		</div>
+	</div>
+    
+</div>
+
+<script src={% static 'logs/js/seller.js' %}></script>
+ 
+
+{%csrf_token%}
+
+{% endblock content %}

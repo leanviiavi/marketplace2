@@ -1,0 +1,19 @@
+{% include 'logs/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+    <div class="form_auth">
+        <form action="authorize" method="POST">
+            <label for="login">Scan to authorize</label>
+            <div id="login"></div>
+        </form>
+    </div>
+</div>
+
+<script src={% static 'logs/js/QR.js' %}></script>
+<script src={% static 'logs/js/auth.js' %}></script>
+
+
+{% endblock content %}

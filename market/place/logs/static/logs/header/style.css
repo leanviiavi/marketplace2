@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+.global-nav-bar{
+    grid-row:  1 / 2;
+    grid-column: 1 / 3;
+    width: 100%;
+    height: 100px;
+    background-color: #FFFFFF50;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid gray;
+}
+.logo-name{
+    margin-left: 70px;
+    display: flex;
+    flex-grow: 1;
+    color: #282828;
+    font-size: 40px;
+    font-weight: 700;
+    flex-basis: 20%;
+}
+.middle-nav-bar{
+    margin-left: 5%;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    flex-basis: 50%;
+}
+.right-nav-tools{
+    flex-basis: 50%;
+    display: flex;
+    margin-right: 70px;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+.create-account{
+    font-size: 16px;
+    font-weight: 400;
+    color: #282828;
+    background: white;
+    padding: 10px 20px;
+    position: relative;
+    border-radius: 5px;
+    text-align: center;
+    transition-duration: .5s;
+}
+.create-account::before{
+    content: "";
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    background: linear-gradient(90deg, #8860D0, #5AB9EA);
+    border-radius: 5px;
+    z-index: -1;
+}
+.create-account:hover{
+    color: #FFFFFF;
+    background: none;
+    transition-duration: .5s;
+}
+.connect-wallet{
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 5%;
+    color: #282828;
+    background: white;
+    padding: 10px 20px;
+    position: relative;
+    border-radius: 5px;
+    text-align: center;
+    transition-duration: .5s;
+}
+.connect-wallet::before{
+    content: "";
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    background: linear-gradient(90deg, #8860D0, #5AB9EA);
+    border-radius: 5px;
+    z-index: -1;
+}
+.connect-wallet:hover{
+    color: #FFFFFF;
+    background: none;
+    transition-duration: .5s;
+}
+.user-profile-button{
+    display: flex;
+    margin-left: 5%;    
+}
+.user-profile-button img{
+    border-radius: 50%;
+    height: auto;
+}
+.search-button{
+    display: flex;
+}
+.search{
+    padding-top: 10px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-radius: 50px;
+}
+.search-button button{
+    border: none;
+    outline: none;
+    background: none;
+}
+.search-field{
+    display: flex;
+    flex-basis: 90%;
+}
+.search-field input[type="text"]{
+    color: #282828;
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    margin-left: 5%;
+}
+
+
+
+.left-margin{
+    margin-left: 5%;
+}
+.right-margin{
+    margin-right: 5%;
+}
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+.links{
+    text-decoration: none;
+}
+
+
+@media (max-width: 1100px) {
+
+}
+@media (max-width: 800px) {
+    .logo-name{
+        font-size: 28px;
+    }
+    .create-account{
+        font-size: 10px;
+        padding: 7px 14px;
+        border-radius: 3.5px;
+    }
+    .connect-wallet{
+        font-size: 10px;
+        padding: 7px 14px;
+        border-radius: 3.5px;
+    }
+    .user-profile-button img{
+        width: auto;
+        height: auto;
+    }
+    .search-field input[type="text"]{
+        font-size: 10px;
+    }
+    .search-button img{
+        width: auto;
+        height: 80%;
+    }
+    .search{
+        padding: 7px;
+    }
+}
+@media (max-width: 550px) {
+    .logo-name{
+        font-size: 20px;
+    }
+    .create-account{
+        font-size: 8px;
+        padding: 5px 10px;
+        border-radius: 2.5px;
+    }
+    .connect-wallet{
+        font-size: 8px;
+        padding: 5px 10px;
+        border-radius: 2.5px;
+    }
+    .user-profile-button img{
+        width: auto;
+        height: auto;
+    }
+    .search-field input[type="text"]{
+        font-size: 10px;
+    }
+    .search-button img{
+        width: auto;
+        height: 60%;
+        align-self: center;
+    }
+    .search{
+        padding: 5px;
+    }
+}
