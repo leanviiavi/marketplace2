@@ -17,12 +17,17 @@ const csrftoken = getCookie('csrftoken');
 console.log(csrftoken);
 
 
-let bue = document.querySelectorAll(".button_bue");
+let bue = document.querySelectorAll(".main-image");
 
-let indexOfProduct = 0;
+let index = 0;
 
 bue.forEach(element => {
     element.addEventListener('click', function(){
+        let indexOfProduct = document.querySelectorAll(".prod_id")[index].innerHTML;
+        console.log(123);
+        console.log(indexOfProduct)
+        localStorage.setItem("product_id", indexOfProduct)
+        index++;
         let form = document.createElement("form");
         form.setAttribute("method", "POST");
         form.setAttribute("action", "/current/");

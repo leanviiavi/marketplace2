@@ -1,4 +1,12 @@
 from django.urls import path
+from django import template
+register = template.Library()
+
+@register.filter
+def index(indexable, i):
+    return indexable[i]
+
+register.filter('index', index)
  
 from . import views
 app_name = 'logs'

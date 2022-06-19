@@ -7,24 +7,25 @@ from .core.db import DB
 
 
 def marketplace_(request):
-    marketplace = Marketplace("demo2.db")
+    marketplace = Marketplace("demo3.db")
     # Тут нужен id пользователя
     coins = marketplace.info_account_coins(0)
 
     data = loadMarketPlace()
     products = marketplace.load()
-    products_date = get_index(products, 5)
+    users = marketplace.load_product_users(products)
     print(data)
     print(products)
+    
+    
     context = {
-		'products_link_image': data,
-        'products_date': products_date,
-        'loadNFT': "/logs/js/loadNFT.js",
-        'coins': coins,
-        'range' : get_range(len(products_date))
+		'products' : data,
+        'prod': products,
+        'users' : users
 	}
     return render(request,
 		'logs/index.html', context)
+
 
 def auth(request):
     return render(request, 'logs/auth.html')
@@ -39,15 +40,19 @@ def currentNFT(request):
     if request.method=="POST":
         data = request.POST
         data = dict(data.lists())
-        marketplace = Marketplace("demo2.db")
+        marketplace = Marketplace("demo3.db")
 
         coins = marketplace.info_account_coins(data["user_id"][0])
         
         data_pr = marketplace.loadCurrent(int(data["id"][0]))
+
+        print(data_pr)
+
         context = {
 		    'products': marketplace.image_by_id(data_pr[0][0]),
             'product_id' : data['id'][0],
-            'coins': coins
+            'coins': coins,
+            'data': data_pr,
 	    }
         return render(request, 'logs/currentNFT.html', context)
 
@@ -62,8 +67,8 @@ def sole(request):
     if request.method == "POST":
         data = request.POST
         data = dict(data.lists())
-
-        marketplace = Marketplace("demo2.db")
+        print(data)
+        marketplace = Marketplace("demo3.db")
         hash = marketplace.sell(data['product_id'][0], data[id][0])
         return render(request, {"product":data['product_id'][0], "user":data[id][0], "hash": hash})
     else:
@@ -71,7 +76,7 @@ def sole(request):
 
 
 def loadMarketPlace():
-    marketplace_data = Marketplace("demo2.db")
+    marketplace_data = Marketplace("demo3.db")
     images_link = []
     datas = marketplace_data.load()
     for i in range(len(datas)):
@@ -91,4 +96,11 @@ def get_range(size: int):
     #     result+=str(i)
     # return result
 
-    return [str(i) for i in range(size)]
+    return (str(i) for i in range(size))
+
+def to_dict(array_1: list, array_2: list):
+    result = {}
+    for i in range(len(array_1)):
+        result[array_1[i]] = array_2[i]
+    return result
+    

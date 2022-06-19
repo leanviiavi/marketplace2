@@ -56,34 +56,42 @@
 			</div>
 			
 			<div class="main-shop-menu">
-				{% for i in range %}
-				{{range}}
+
+				{% for i in products %}
+				{% for j in prod %}
+				{% if forloop.counter0 == forloop.parentloop.counter0%}
+				{% for n in users %}
+				{% if forloop.counter0 == forloop.parentloop.counter0%}
 				<div class="product-1">
 					<article class="main-image">
-					  <img src="{% static products_link_image %}" alt="" />
+					  <img src="{% static i %}" alt="" />
 					  <div>
 						<img src="{% static 'logs/img/card/icon-view.svg' %}" alt="" />
 					  </div>
 					</article>
 			  
 					<article>
-					  <h2></h2>
-					  <p>Our Equilibrium collection promotes balance and calm.</p>
+					  <h2>{{ j.3 }} #<span class="prod_id">{{ j.0 }}</span></h2>
+					  <p> {{ j.4 }} </p>
 			  
 					  <ul>
-						<li><img src="{% static 'logs/img/card/icon-ethereum.svg' %}" alt="" /> 0.041 ETH</li>
-						<li><img src="./img/card/icon-clock.svg" alt="" /> {{ products_date }} </li>
+						<li><img src="{% static 'logs/img/card/icon-ethereum.svg' %}" alt="" /> {{ j.2 }} ETH</li>
+						<li><img src="./img/card/icon-clock.svg" alt="" /> {{ j.5 }} </li>
 					  </ul>
 					</article>
 			  
 					<article class="avatar">
 					  <img src="{% static 'logs/img/card/image-avatar.png' %}" alt="" />
-					  <p>Creation of <span>Jules Wyvern</span></p>
+					  <p>Creation of <span> {{n.0.0}} </span></p>
 					</article>
 				</div>
-
+				{% endif %}
+				{% endfor %}
+				{% endif %}
+				{% endfor %}
 				{% endfor %}
 			</div>
 		</div>
 	
+		<script src="{% static 'logs/js/loadNFT.js' %}"></script>
 {% endblock content %}

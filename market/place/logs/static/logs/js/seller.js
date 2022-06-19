@@ -17,8 +17,7 @@ const csrftoken = getCookie('csrftoken');
 console.log(csrftoken);
 
 
-let button = document.querySelector(".button_for_bye");
-localStorage.setItem("product_id", document.querySelector("#product_id").value)
+let button = document.querySelector("#button_for_bye");
 
 button.addEventListener('click', function(){
 
@@ -31,12 +30,14 @@ button.addEventListener('click', function(){
             mode: 'same-origin', // Do not send CSRF token to another domain.
             body: `{
                 "id" : localStorage.getItem("user"),
-                "product_id" : localStorage.getItem("product_id")
+                "product_id" : localStorage.getItem("product_id"),
+                "csrftoken" : csrftoken
             }`
             
         }
     );
     fetch(request).then(function(response) {
+        // document.location.href="../";
         console.log(response);
     })
 });

@@ -23,6 +23,13 @@ class Marketplace:
         user_hash = db_.execute(f"SELECT public_key FROM accounts WHERE id={user_id}")
         return float(app.infoCoins(user_hash=user_hash[0][0])) / 1000000000000000000
 
+    def load_product_users(self, products_id: list) -> list:
+        db_ = DB(self.name_db)
+        result = []
+        for i in products_id:
+            result.append(db_.execute(f"SELECT user_nick FROM accounts WHERE id={i[1]}"))
+        return result
+
     def sell(self, current_product_id: int, ac_1: str):
         db_ = DB(self.name_db)
         app = App()
@@ -46,7 +53,7 @@ class Marketplace:
     
 
     def create_demo(self):
-        db_ = DB("demo2.db")
+        db_ = DB("demo3.db")
         
         # CREATE TABLES
             #ACCOUNT
@@ -78,8 +85,8 @@ class Marketplace:
         db_.execute("INSERT INTO accounts VALUES (0, 'leanviiavi', '93be121174ff26c4c79fb49e8b106273b14c8984e0733db82ee37bb9e009cd72', '0x042605ad8f7Eca8d2133f2794E78eEd7E2d9c01d')")
         db_.execute("INSERT INTO accounts VALUES (1, 'jeka', 'fdb9bd65d441a438ebeb973c6fc5c70dec833f18995272a91c849ae45dfe2829', '0x995AFE0263103CCdC8Ba6a015DdBA623321eab4C')")
         # NFTS
-        db_.execute("INSERT INTO nfts VALUES (2, 0, 0.001, 'image-equilibrium.jpg', 'no description data', '18.06.2022')")
-        db_.execute("INSERT INTO nfts VALUES (3, 1, 0.005, 'image-equilibrium.jpg', 'no description data 2', '18.06.2022')")
+        db_.execute("INSERT INTO nfts VALUES (1, 0, 0.001, 'image-equilibrium.jpg', 'no description data', '18.06.2022')")
+        db_.execute("INSERT INTO nfts VALUES (2, 1, 0.005, 'image-equilibrium.jpg', 'no description data 2', '18.06.2022')")
 
         # RESULT
         print(db_.execute("SELECT * FROM accounts"))

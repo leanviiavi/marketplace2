@@ -1,23 +1,43 @@
 {% include 'logs/base.html' %}
 {% load static%}
 {% block content %}
-<a href="../">Назад</a>
 <div class="container" style="color: white">
-    <ul class="market-list">
-        <li>
-            <img src={% static products %} alt="no image">
-            <form action="bye" method="post">
-                <input type="hidden" id="product_id" value={{ product_id }}>
-                <input type="button" class="button_for_bye" value="Купить">
-            </form>
-        </li>
-    </ul>
+   
+    
 
-    <div class="user_info">
-		<div class="info_coins">
-			<h3>Баланс: {{ coins }}</h3>
-		</div>
-	</div>
+    <div class="product-1">
+      <article class="main-image">
+        <img src="{% static products %}" alt="" />
+        <div>
+        <img src="{% static 'logs/img/card/icon-view.svg' %}" alt="" />
+        </div>
+      </article>
+    
+      <article>
+        <h2>{{ data.0.3 }} #{{ data.0.0 }}</h2>
+        <p> {{ j.4 }} </p>
+    
+        <ul>
+        <li><img src="{% static 'logs/img/card/icon-ethereum.svg' %}" alt="" /> {{ data.0.2 }} ETH</li>
+        <li><img src="./img/card/icon-clock.svg" alt="" /> {{ data.0.5 }} </li>
+        </ul>
+      </article>
+    
+      <article class="avatar">
+        <img src="{% static 'logs/img/card/image-avatar.png' %}" alt="" />
+        <p><span> 
+
+          Баланс:  {{ coins }}
+
+          <form action="" method="post">
+            <input type="hidden" name="prod_id">
+            <input type="hidden" name="user_id">
+            <input type="button" name="bue" id="button_for_bye" value="Купить">
+            
+          </form>  
+        </span></p>
+      </article>
+    </div>
     
 </div>
 
